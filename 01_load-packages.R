@@ -9,7 +9,6 @@ packages <- c(
   "ggplot2", #plotting
   "ggpubr", #combining multiple ggplots
   "ggsci", #fun palettes for ggplot
-  "glmmTMB", #linear mixed models
   "gtable", #extract legend from ggplot and save as separate ggplot object
   "randomForest", #random forest models
   "readr", #loading *.csv files
