@@ -1,6 +1,3 @@
----
-output: html_document
----
 # NutrientYieldsWIO
 
 Nutrient yields and fisheries underperformance in the Western Indian Ocean
