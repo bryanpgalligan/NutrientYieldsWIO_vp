@@ -12,26 +12,123 @@ This repository includes software and summary data associated with our study of 
 
 ### National Catch Compositions
 
-*Filepath*: [data/04_NationalCatchCompositions.rds]<https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/04_NationalCatchCompositions.rds>
+**Filepath**: [data/04_NationalCatchCompositions.rds](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/04_NationalCatchCompositions.rds)
 
-*Description*: The main data file containing catch compositions will appear as a list object when opened in R. It includes 10 data frames containing taxonomic break downs of the artisanal nearshore catches of each WIO fishery jurisdiction. They match the 6 *.csv files listed below, which are the only ones original to this study. The other four are direct copies from the [Sea Around Us]<https://www.seaaroundus.org/data/#/eez> database and are publicly available.
+**Description**: The main data file containing catch compositions will appear as a list object when opened in R. It includes 10 data frames containing taxonomic break downs of the artisanal nearshore catches of each WIO fishery jurisdiction. They match the 6 *.csv files listed below, which are the only ones original to this study. The other four are direct copies from the [Sea Around Us (SAU)](https://www.seaaroundus.org/data/#/eez) database and are publicly available on the SAU website.
+
+**Variables**: `9`
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| valid_name | The scientific name for this taxon |
+| rank | Taxonomic rank (family, genus, or species) |
+| kingdom | Taxonomic kingdom |
+| phylum | Taxonomic phylum |
+| class | Taxonomic class |
+| order | Taxonomic order |
+| family | Taxonomic family |
+| genus | Taxonomic genus |
+| ratio | Proportion of this jurisdiction's artisanal fish catch taken up by this taxon, expressed as a decimal |
 
 #### Kenya Catch Composition
 
+**Filepath**: [data/KenyaCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/KenyaCatchComposition.csv)
+
+**Taxa**: `267`
+
 #### Madagascar Catch Composition
+
+**Filepath**: [data/MadagascarCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/MadagascarCatchComposition.csv)
+
+**Taxa*: `197`
 
 #### Mozambique Catch Composition
 
+**Filepath**: [data/MozambiqueCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/MozambiqueCatchComposition.csv)
+
+**Taxa*: `133`
+
 #### Reunion Catch Composition
+
+**Filepath**: [data/ReunionCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/ReunionCatchComposition.csv)
+
+**Taxa*: `46`
 
 #### Seychelles Catch Composition
 
+**Filepath**: [data/SeychellesCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/SeychellesCatchComposition.csv)
+
+**Taxa*: `134`
+
 #### Tanzania Catch Composition
 
+**Filepath**: [data/TanzaniaCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/TanzaniaCatchComposition.csv)
+
+**Taxa*: `44`
 
 ### National Nutrient Losses
 
-*Filepath*: [data/05_NationalNutrientLosses.csv]<>
+**Filepath**: [data/05_NationalNutrientLosses.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/05_NationalNutrientLosses.csv)
+
+**Description**: Summary data of nutrient production and lost production for 10 Western Indian Ocean fishery jurisdictions.
+
+**Observations**: `10`
+
+**Variables**: `39`
+
+| Variable Name | Description |
+| ------------- | ----------- |
+| eez | Name of fishery jurisdiction (exclusive economic zone) |
+| lost.yield_total.tons.day | Lost yield due to overfishing in this jurisdiction (tons per day) |
+| lost.yield_mean.kg.km2.day | Mean lost yield at overfished sites (kilograms per square kilometer per day) |
+| lost.yield_se.mean | Standard error of the mean for lost yield at overfished sites |
+| population | Population estimates for this jurisdiction (World Bank and INSEE) |
+| children | Population under age 5 in this jurisdiction (UNDESA, 2022) |
+| calcium_pdv.100g | Calcium density in the artisanal catch (percent recommended daily allowance for a child 1--3 years old in 100 g serving) |
+| iron_pdv.100g | Iron density in the artisanal catch (percent recommended daily allowance for a child 1--3 years old in 100 g serving) |
+| omega3_pdv.100g | Omega-3 density in the artisanal catch (percent allowable intake for a child 1--3 years old in a 100 g serving) |
+| selenium_pdv.100g | Selenium density in the artisanal catch (percent recommended daily allowance for a child 1--3 years old in 100 g serving) |
+| vitamina_pdv.100g | Vitamin A density in the artisanal catch (percent recommended daily allowance for a child 1--3 years old in 100 g serving) |
+| zinc_pdv.100g | Zinc density in the artisanal catch (percent recommended daily allowance for a child 1--3 years old in 100 g serving) |
+| lost.calcium_dri.day | Total lost servings of calcium due to overfishing (per day) |
+| lost.calcium_dri.child.day | Per capita (child) lost servings of calcium due to overfishing (per day) |
+| lost.calcium_mean.dri.km2.day | Mean lost child servings of calcium at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.calcium_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| lost.iron_dri.day | Total lost servings of iron due to overfishing (per day) |
+| lost.iron_dri.child.day | Per capita (child) lost servings of iron due to overfishing (per day) |
+| lost.iron_mean.dri.km2.day | Mean lost child servings of iron at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.iron_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| lost.omega3_dri.day | Total lost servings of omega-3 due to overfishing (per day) |
+| lost.omega3_dri.child.day | Per capita (child) lost servings of omega-3 due to overfishing (per day) |
+| lost.omega3_mean.dri.km2.day | Mean lost child servings of omega-3 at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.omega3_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| lost.selenium_dri.day | Total lost servings of selenium due to overfishing (per day) |
+| lost.selenium_dri.child.day | Per capita (child) lost servings of selenium due to overfishing (per day) |
+| lost.selenium_mean.dri.km2.day | Mean lost child servings of selenium at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.selenium_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| lost.vitamina_dri.day | Total lost servings of vitamin A due to overfishing (per day) |
+| lost.vitamina_dri.child.day | Per capita (child) lost servings of vitamin A due to overfishing (per day) |
+| lost.vitamina_mean.dri.km2.day | Mean lost child servings of vitamin A at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.vitamina_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| lost.zinc_dri.day | Total lost servings of zinc due to overfishing (per day) |
+| lost.zinc_dri.child.day | Per capita (child) lost servings of zinc due to overfishing (per day) |
+| lost.zinc_mean.dri.km2.day | Mean lost child servings of zinc at overfished sites per square kilometer per day relative to biomass at maximum sustained yield (Bmsy) |
+| lost.zinc_se.dri | Standard error of the mean lost servings per square kilometer per day |
+| nutrient.density_coef | A combined nutrient density coefficient between 0--1, with 1 representing a full serving of all six nutrients in a 100 g serving of fish |
+| lost.dri_km2.day | Mean lost nutrient production for all sites in this jurisdiction (recommended intake of six nutrients per square kilometer per day) |
+| lost.dri_se | Standard error of the mean (servings per square kilometer per day) |
+
+### Data citations
+
+For a complete list of data sources and citations, please see the supplemental information to the published manuscript. Data sources directly reported and mentioned above, are:
+
+INSEE. (2023). Estimations de population (résultats provisoires arrêtés fin 2022). <https://www.insee.fr/fr/statistiques/fichier/1893198/estim-pop-nreg-sexe-gca-1975-2023.xls>
+
+Pauly D, Zeller D, Palomares MLD. (2020). Sea Around Us concepts, design, and data. <https://seaaroundus.org>
+
+UNDESA. (2022). _World population prospects: The 2022 revision_ [Data portal]. United Nations, Department of Economic and Social Affairs, Population Division. <https://population.un.org/dataportal/>
+
+World Bank. (2023). World Bank open data. <https://data.worldbank.org/>
 
 ## Built with
 
