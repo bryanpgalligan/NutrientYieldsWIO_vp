@@ -1,0 +1,47 @@
+"","valid_name","rank","kingdom","phylum","class","order","family","genus","ratio"
+"1","Carcharhinus longimanus","Species","Animalia","Chordata","Elasmobranchii","Carcharhiniformes","Carcharhinidae","Carcharhinus",0.0111171347943454
+"2","Carcharhinus","Genus","Animalia","Chordata","Elasmobranchii","Carcharhiniformes","Carcharhinidae","Carcharhinus",0.000707892808901879
+"3","Carcharhinidae","Family","Animalia","Chordata","Elasmobranchii","Carcharhiniformes","Carcharhinidae",NA,0.0232768026345282
+"4","Sphyrna mokarran","Species","Animalia","Chordata","Elasmobranchii","Carcharhiniformes","Sphyrnidae","Sphyrna",0.00334479352206138
+"5","Sphyrnidae","Family","Animalia","Chordata","Elasmobranchii","Carcharhiniformes","Sphyrnidae",NA,0.00250175754055096
+"6","Caranx ignobilis","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Caranx",0.000434197385100958
+"7","Carangoides hedlandensis","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Carangoides",0.000148576224728111
+"8","Carangoides gymnostethus","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Carangoides",9.04762681926409e-05
+"9","Caranx melampygus","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Caranx",0.000183391847537534
+"10","Decapterus macarellus","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Decapterus",0.00212885336923861
+"11","Elagatis bipinnulata","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Elagatis",0.00100255688357581
+"12","Selar crumenophthalmus","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Selar",0.0108924113170449
+"13","Seriola lalandi","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Seriola",1.7075178065768e-05
+"14","Seriolina nigrofasciata","Species","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Seriola",1.55228891506982e-06
+"15","Caranx","Genus","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Caranx",0.000501832830686143
+"16","Seriola","Genus","Animalia","Chordata","Teleostei","Carangiformes","Carangidae","Seriola",0.000601622832369203
+"17","Aphareus furca","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Aphareus",0.000344196247140551
+"18","Aprion virescens","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Aprion",0.000294308693911273
+"19","Apsilus fuscus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Apsilus",0.000684769375890149
+"20","Lutjanus bengalensis","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",9.47584809941598e-06
+"21","Lutjanus bohar","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",1.39350707344353e-06
+"22","Lutjanus gibbus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",6.21504154755813e-05
+"23","Lutjanus kasmira","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",0.00587948504427293
+"24","Lutjanus russellii","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",1.11480565875482e-06
+"25","Lutjanus rivulatus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",5.2953268790854e-06
+"26","Lutjanus fulvus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Lutjanus",4.84940461558347e-05
+"27","Pristipomoides zonatus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Pristipomoides",0.000885713095880705
+"28","Aphareus rutilans","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Aphareus",0.000265323746783647
+"29","Etelis","Genus","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Etelis",0.00122210570340997
+"30","Etelis carbunculus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Etelis",0.00112846202807457
+"31","Pristipomoides filamentosus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Pristipomoides",0.000666653783935383
+"32","Pristipomoides sieboldii","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Pristipomoides",2.73127386394931e-05
+"33","Pristipomoides typus","Species","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Pristipomoides",0.000203452032722755
+"34","Aphareus","Genus","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae","Aphareus",0.000163319029007581
+"35","Lutjanidae","Family","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Lutjanidae",NA,8.6954841382876e-05
+"36","Mulloidichthys vanicolensis","Species","Animalia","Chordata","Teleostei","Mulliformes","Mullidae","Mulloides",8.64638915637063e-06
+"37","Parupeneus barberinus","Species","Animalia","Chordata","Teleostei","Mulliformes","Mullidae","Parupeneus",7.77133290440059e-05
+"38","Parupeneus cyclostomus","Species","Animalia","Chordata","Teleostei","Mulliformes","Mullidae","Parupeneus",6.45874852644553e-06
+"39","Upeneus","Genus","Animalia","Chordata","Teleostei","Mulliformes","Mullidae","Upeneus",1.73622272216278e-06
+"40","Mullidae","Family","Animalia","Chordata","Teleostei","Mulliformes","Mullidae",NA,0.000119834092283675
+"41","Sparidae","Family","Animalia","Chordata","Teleostei","Eupercaria incertae sedis","Sparidae",NA,0.00195853686273313
+"42","Sphyraena barracuda","Species","Animalia","Chordata","Teleostei","Carangaria incertae sedis","Sphyraenidae","Sphyraena",0.000276473457132257
+"43","Acanthocybium solandri","Species","Animalia","Chordata","Teleostei","Scombriformes","Scombridae","Acanthocybium",0.341456034295413
+"44","Coryphaena hippurus","Species","Animalia","Chordata","Teleostei","Carangiformes","Coryphaenidae","Coryphaena",0.576423384566318
+"45","Epinephelus fasciatus","Species","Animalia","Chordata","Teleostei","Perciformes","Serranidae","Epinephelus",0.00582937347812691
+"46","Gymnosarda unicolor","Species","Animalia","Chordata","Teleostei","Scombriformes","Scombridae","Gymnosarda",0.00491090052230781
