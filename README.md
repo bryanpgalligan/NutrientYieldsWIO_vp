@@ -1,32 +1,16 @@
 # NutrientYieldsWIO
 
-Nutrient yields and fisheries underperformance in the Western Indian Ocean
-
-## Authors
-
-- Bryan P. Galligan S.J. (bgalligan@jesuits.org)
-
-- Timothy R. McClanahan (tmcclanahan@wcs.org)
+Nutrient production in tropical fisheries depends on biomass-based management
 
 ## Overview
 
-This is the data management and analysis workflow for a study of nutrient yields from coral reef artisanal fisheries in the Western Indian Ocean. It includes 20 years of detailed catch monitoring data with locations in Kenya, Mozambique, and Madagascar, as well as national catch composition reconstructions for 10 WIO exclusive economic zones (EEZs). These data are available for confirmatory purposes only. For any other uses, original data providers must be contacted directly.
-
-## Instructions
-
-### For data access
-
-Processed data files are available in the [`data/clean-data`](https://github.com/bryanpgalligan/NutrientYieldsWIO/tree/main/data/clean-data) subfolder. Files are numbered to indicate which script produces them. See below for metadata and information on data providers.
-
-### To reproduce the analysis
-
-Scripts are designed to be run in numeric order, beginning with `01_ScriptTitle.R`.
+This repository includes software and summary data associated with a study of nutrient yields from tropical artisanal fisheries in the Western Indian Ocean (WIO). All R code and figures are included, but full datsasets are not publicly available. Please contact the developer for assistance gaining access to the original (complete) data.
 
 ## Built with
 
 - R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
 
-- RStudio 2023.03.0+386 "Cherry Blossom" Release (3c53477afb13ab959aeb5b34df1f10c237b256c3, 2023-03-09) for macOS
+- RStudio 2023.06.1+524 "Mountain Hydrangea" Release (547dcf861cac0253a8abb52c135e44e02ba407a1, 2023-07-06) for macOS
 
 ### R packages
 
@@ -38,7 +22,7 @@ Scripts are designed to be run in numeric order, beginning with `01_ScriptTitle.
 
 - forcats (v1.0.0)
 
-- ggeffects (v1.2.1)
+- ggeffects (v1.2.3)
 
 - ggmap (v3.0.2)
 
@@ -48,21 +32,39 @@ Scripts are designed to be run in numeric order, beginning with `01_ScriptTitle.
 
 - ggsci (v3.0.0)
 
-- glmmTMB (v1.1.7)
+- gtable (v0.3.3)
 
 - randomForest (v4.7-1.1)
 
 - readr (v2.1.4)
 
-- readxl (v1.4.2)
+- readxl (v1.4.3)
 
-- rfishbase (v4.1.1)
+- rfishbase (v4.1.2)
+
+- scales (v1.2.1)
+
+- sf (v1.0-14)
+
+- stringdist (v0.9.10)
+
+- stringr (v1.5.0)
+
+- taxize (v0.9.100)
+
+- tidyr (v1.3.0)
+
+- worrms (v0.4.3)
 
 ### Software citations
 
 Boettiger C, Lang DT, Wainwright PC. (2012). rfishbase: exploring, manipulation, and visualizing FishBase data from R. _Journal of Fish Biology_, _81_(6), 2030--2039. <https://doi.org/10.1111/j.1095-8649.2012.03464.x>
 
-Brooks ME, Kristensen K, van Benthem KJ, Magnusson A, Berg CW, Nielsen A, Skaug HJ, Maechler M, Bolker BM. (2017). glmmTMB balances speed and flexibility among packages for zero-inflated generalized linear mixed modeling. _The R Journal_, _9_(2), 378--400. <https://doi.org/10.32614/RJ-2017-066/>
+Chamberlain S, Szocs E. (2013). taxize - taxonomic search and retrieval in R. _F1000Research_, _2_, 191. <https://f1000research.com/articles/2-191/v2>
+
+Chamberlain S, Szoecs E, Foster Z, Arendsee Z, Boettiger C, Ram K, Bartomeus I, Baumgartner J, O'Donnell J, Oksanen J, Greshake Tzovaras B, Marchand P, Tran V, Salmon M, Li G, Grenié M. (2020). _taxize: Taxonomic information from around the web_. R package version 0.9.98. <https://github.com/ropensci/taxize>
+
+Chamberlain S, Vanhoorne B. (2023). _worrms: World Register of Marine Species (WoRMS) Client_. R package version 0.4.3. <https://CRAN.R-project.org/package=worrms>
 
 Kahle D, Wickham H. (2013). ggmap: Spatial visualization with ggplot2. _The R Journal_, _5_(1), 144--161. <https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf>
 
@@ -71,6 +73,10 @@ Kassambara A. (2023). _ggpubr: "ggplot2" based publication ready plots_. R packa
 Liaw A, Wiener M. (2002) Classification and regression by randomForest. _R News_, _2_(3), 18--22. <https://CRAN.R-project.org/doc/Rnews/>
 
 Lüdecke D. (2018). ggeffects: Tidy data frames of marginal effects from regression models. _Journal of Open Source Software_, _3_(26), 772. <https://doi.org/10.21105/joss.00772>
+
+Pebesma E. (2018). Simple features for R: Standardized support for spatial vector data. _The R Journal_, _10_(1), 439--446. <https://doi.org/10.32614/RJ-2018-009>
+
+Pebesma E, Bivand R. (2023). _Spatial data science: With applications in R_. Chapman and Hall/CRC. <https://doi.org/10.1201/9780429459016>
 
 Posit Team. (2023). _RStudio: Integrated development environment for R_. Posit Software, PBC (Boston, MA). <https://www.posit.co/>
 
@@ -82,17 +88,27 @@ Thorson JT. (2022). _FishLife: Predict life history parameters for any fish_. R 
 
 Thorson JT, Munch SB, Cope JM, Gao J. (2017). Predicting life history parameters for all fishes worldwide. _Ecological Applications_, _27_(8), 2262--2276. <https://doi.org/10.1002/eap.1606>
 
+van der Loo M. (2014). The stringdist package for approximate string matching. _The R Journal_, _6_, 111--122. <https://CRAN.R-project.org/package=stringdist>
+
 Wei T, Simko V. (2021). _R package 'corrplot': Visualization of a correlation matrix_. R package version 0.92. <https://github.com/taiyun/corrplot>
 
 Wickham H. (2016). _ggplot2: Elegant graphics for data analysis_. Springer-Verlag (New York). <https://ggplot2.tidyverse.org>
+
+Wickham H. (2022). _stringr: Simple, consistent wrappers for common string operations_. R package version 1.5.0. <https://CRAN.R-project.org/package=stringr>
 
 Wickham H. (2023). _forcats: Tools for working with categorical variables (factors)_. R package version 1.0.0. <https://CRAN.R-project.org/package=forcats>
 
 Wickham H, Bryan J. (2023). _readxl: Read excel files_. R package version 1.4.2. <https://CRAN.R-project.org/package=readxl>
 
-Wickham H, François R, Henry L, Müller K, Vaughan D. (2023). _dplyr: A grammar of data manipulation_. R package version 1.1.2. <https://CRAN.R-project.org/package=dplyr>.
+Wickham H, François R, Henry L, Müller K, Vaughan D. (2023). _dplyr: A grammar of data manipulation_. R package version 1.1.2. <https://CRAN.R-project.org/package=dplyr>
 
 Wickham H, Hester J, Bryan J. (2023). _readr: Read rectangular text data_. R package version 2.1.4. <https://CRAN.R-project.org/package=readr>
+
+Wickham H, Pedersen T. (2023). _gtable: Arrange 'grobs' in tables_. R package version 0.3.3. <https://CRAN.R-project.org/package=gtable>
+
+Wickham H, Seidel D. (2022). _scales: Scale functions for visualization_. R package version 1.2.1. <https://CRAN.R-project.org/package=scales>
+
+Wickham H, Vaughan D, Girlich M. (2023). _tidyr: Tidy Messy Data_. R package version 1.3.0. <https://CRAN.R-project.org/package=tidyr>
 
 Xiao N. (2023). _ggsci: Scientific journal and sci-fi themed color palettes for "ggplot2"_. R package version 3.0.0. <https://CRAN.R-project.org/package=ggsci>
 
