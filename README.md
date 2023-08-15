@@ -40,31 +40,31 @@ This repository includes software and summary data associated with our study of 
 
 **Filepath**: [data/MadagascarCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/MadagascarCatchComposition.csv)
 
-**Taxa*: `197`
+**Taxa**: `197`
 
 #### Mozambique Catch Composition
 
 **Filepath**: [data/MozambiqueCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/MozambiqueCatchComposition.csv)
 
-**Taxa*: `133`
+**Taxa**: `133`
 
 #### Reunion Catch Composition
 
 **Filepath**: [data/ReunionCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/ReunionCatchComposition.csv)
 
-**Taxa*: `46`
+**Taxa**: `46`
 
 #### Seychelles Catch Composition
 
 **Filepath**: [data/SeychellesCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/SeychellesCatchComposition.csv)
 
-**Taxa*: `134`
+**Taxa**: `134`
 
 #### Tanzania Catch Composition
 
 **Filepath**: [data/TanzaniaCatchComposition.csv](https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/TanzaniaCatchComposition.csv)
 
-**Taxa*: `44`
+**Taxa**: `44`
 
 ### National Nutrient Losses
 
