@@ -4,7 +4,34 @@ Nutrient production in tropical fisheries depends on biomass-based management
 
 ## Overview
 
-This repository includes software and summary data associated with a study of nutrient yields from tropical artisanal fisheries in the Western Indian Ocean (WIO). All R code and figures are included, but full datsasets are not publicly available. Please contact the developer for assistance gaining access to the original (complete) data.
+Tropical artisanal fisheries are a crucial source of dietary nutrients for millions of people but are threatened by climate change and overfishing. The need to enhance nutrient production from tropical ecosystems to feed the poor could potentially create a new framework for fisheries science and management. Early recommendations have included targeting small fishes and increasing the species richness of fish catches, which would represent a departure from more traditional biomass-based, sustainable yield, and biodiversity conservation approaches. To test these recommendations, we compared the outcomes of biomass-based management with hypothesized factors influencing nutrient density in artisanal fish catches in large data sets from nearshore fisheries in the Western Indian Ocean. Using machine learning tools and catch reconstruction techniques, we found that enhancing nutrient production depends primarily on achieving biomass-based targets. Therefore, some recommendations designed to enhance the nutrient density of catches are expected to reduce nutrient production, overall yields, and biodiversity.
+
+This repository includes software and summary data associated with our study of nutrient yields from tropical artisanal fisheries in the Western Indian Ocean. All R code is included, but full datsasets are not publicly available. Please contact the developer for assistance gaining access to the original (complete) data.
+
+## Data files
+
+### National Catch Compositions
+
+*Filepath*: [data/04_NationalCatchCompositions.rds]<https://github.com/bryanpgalligan/NutrientYieldsWIO_vp/blob/main/data/04_NationalCatchCompositions.rds>
+
+*Description*: The main data file containing catch compositions will appear as a list object when opened in R. It includes 10 data frames containing taxonomic break downs of the artisanal nearshore catches of each WIO fishery jurisdiction. They match the 6 *.csv files listed below, which are the only ones original to this study. The other four are direct copies from the [Sea Around Us]<https://www.seaaroundus.org/data/#/eez> database and are publicly available.
+
+#### Kenya Catch Composition
+
+#### Madagascar Catch Composition
+
+#### Mozambique Catch Composition
+
+#### Reunion Catch Composition
+
+#### Seychelles Catch Composition
+
+#### Tanzania Catch Composition
+
+
+### National Nutrient Losses
+
+*Filepath*: [data/05_NationalNutrientLosses.csv]<>
 
 ## Built with
 
@@ -111,20 +138,3 @@ Wickham H, Seidel D. (2022). _scales: Scale functions for visualization_. R pack
 Wickham H, Vaughan D, Girlich M. (2023). _tidyr: Tidy Messy Data_. R package version 1.3.0. <https://CRAN.R-project.org/package=tidyr>
 
 Xiao N. (2023). _ggsci: Scientific journal and sci-fi themed color palettes for "ggplot2"_. R package version 3.0.0. <https://CRAN.R-project.org/package=ggsci>
-
-## Data files
-
-### Processed (clean) data
-
-### Data sources
-
-
-
-
-
-
-
-
-
-
-
