@@ -5,8 +5,6 @@
 #   R again.
 
 
-
-
 # Install old version of fishbase
 remotes::install_github( 'ropensci/rfishbase@fb-21.06', force=TRUE )
 
@@ -24,8 +22,9 @@ species <- read_csv("data/temp-data/02_SpeciesData.csv")
 species$Linf_cm <- NA
 species$Lmat_cm <- NA
 species$Lopt_cm <- NA
+species$k <- NA
 
-# Fill in Lopt, Lmat, and Linf for all species
+# Fill in Lopt, Lmat, Linf, and K for all species
 for(i in 1:nrow(species)){
   
   # Genus name
@@ -39,17 +38,17 @@ for(i in 1:nrow(species)){
   Predict <- Plot_taxa(Search_species(Genus = Genus, Species = Species)$match_taxonomy, mfrow=c(2,2))
   })
     
-  # Predictive median of Linf for this species
-  Linf <- exp(Predict[[1]]$Mean_pred[[1]])
+  # Predictive mean of Linf for this species
+  Linf <- exp(Predict[[1]]$Mean_pred[["Loo"]])
   
-  # Predictive median of Lmat for this species
-  Lmat <- exp(Predict[[1]]$Mean_pred[[7]])
+  # Predictive mean of Lmat for this species
+  Lmat <- exp(Predict[[1]]$Mean_pred[["Lm"]])
   
-  # Predictive median of M for this species
-  M <- exp(Predict[[1]]$Mean_pred[[6]])
+  # Predictive mean of M for this species
+  M <- exp(Predict[[1]]$Mean_pred[["M"]])
 
-  # Predictive median of K for this species
-  K <- exp(Predict[[1]]$Mean_pred[[2]])
+  # Predictive mean of K for this species
+  K <- exp(Predict[[1]]$Mean_pred[["K"]])
   
   # Calculate Lopt (Beverton 1992)
   Lopt <- Linf * (3 / (3 + M / K))
@@ -58,8 +57,10 @@ for(i in 1:nrow(species)){
   species$Linf_cm[i] <- Linf
   species$Lmat_cm[i] <- Lmat
   species$Lopt_cm[i] <- Lopt
+  species$k[i] <- K
   
 }
+
 
 # Save species
 write.csv(species, file = "data/clean-data/02_SpeciesData.csv",

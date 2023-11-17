@@ -302,15 +302,17 @@ fish_weight <- function(x, key, worms){
 
 
 ## A function that calculates nutrient weights based on fish weights
+## and also adds K, trophic level, and habitat
 
 ## Parameters:
 ##    x:      a data frame that at least has the following columns:
 ##              species (can actually be a species, genus, or family)
 ##              weight_kg (fish weight in kg)
 ##              length_cm (fish length in cm)
-##    key:    a data frame created by the estimate() function in rfishbase that at
-##            least has a column for species name and columns for nutrient
-##            concentration estimates
+##    key:    a data frame created by the table functions in rfishbase that at
+##            least has columns for species name, nutrient concentrations,
+##            trophic level, K (K can be sourced from FishBase or from
+##            FishLife, as it is here), and habitat
 ##    worms:  results of the worms_taxa2 function
 
 ## Output: a data frame with additional columns for nutrient weights and L/Lopt
@@ -324,6 +326,9 @@ nutrient_weights <- function(x, key, worms){
   x$selenium_ug <- NA
   x$vitamin.a_ug <- NA
   x$zinc_mg <- NA
+  x$k <- NA
+  x$troph <- NA
+  x$habitat <- NA
   
   # Add new columns to worms
   worms$calcium_mg <- NA
@@ -333,7 +338,10 @@ nutrient_weights <- function(x, key, worms){
   worms$vitamin.a_ug <- NA
   worms$zinc_mg <- NA
   worms$nut.rank <- worms$rank
-  
+  worms$k <- NA
+  worms$troph <- NA
+  worms$habitat <- NA
+
   # Populate nutrient columns of worms
   for (i in 1:nrow(worms)){
     
@@ -404,6 +412,7 @@ nutrient_weights <- function(x, key, worms){
         
       }
     
+    
     # Populate nutrient columns in x
     x$calcium_mg[x$species == worms$valid_name[i]] <- (worms$calcium_mg[i] * 10) * x$weight_kg[x$species == worms$valid_name[i]]
     x$iron_mg[x$species == worms$valid_name[i]] <- (worms$iron_mg[i] * 10) * x$weight_kg[x$species == worms$valid_name[i]]
@@ -411,9 +420,54 @@ nutrient_weights <- function(x, key, worms){
     x$selenium_ug[x$species == worms$valid_name[i]] <- (worms$selenium_ug[i] * 10) * x$weight_kg[x$species == worms$valid_name[i]]
     x$vitamin.a_ug[x$species == worms$valid_name[i]] <- (worms$vitamin.a_ug[i] * 10) * x$weight_kg[x$species == worms$valid_name[i]]
     x$zinc_mg[x$species == worms$valid_name[i]] <- (worms$zinc_mg[i] * 10) * x$weight_kg[x$species == worms$valid_name[i]]
-  
+    
+    
+    # Populate trophic level, habitat, and k columns of worms (there are no NAs in species_data)
+    
+    # If taxon is a species
+    if(worms$rank[i] == "Species"){
+        
+      # Populate columns
+      worms$troph[i] <- key$troph[key$species == worms$valid_name[i]]
+      worms$habitat[i] <- key$habitat[key$species == worms$valid_name[i]]
+      worms$k[i] <- key$k[key$species == worms$valid_name[i]]
+        
+    }
+      
+    # If taxon is a genus
+    if(worms$rank[i] == "Genus"){
+        
+      # Subset key for this genus
+      key2 <- key[str_which(key$species, pattern = str_split_1(worms$valid_name[i], pattern = " ")[1]), ]
+        
+      # Populate columns
+      worms$troph[i] <- mean(key2$troph, na.rm = TRUE)
+      worms$habitat[i] <- names(which.max(table(key2$habitat)))
+      worms$k[i] <- mean(key2$k, na.rm = TRUE)
+        
+    }
+      
+    # If taxon is a family
+    if(worms$rank[i] == "Family"){
+        
+      # Subset key for all species in family
+      key2 <- filter(key, key$family == worms$family[i])
+        
+      # Populate columns
+      worms$troph[i] <- mean(key2$troph, na.rm = TRUE)
+      worms$habitat[i] <- names(which.max(table(key2$habitat)))
+      worms$k[i] <- mean(key2$k, na.rm = TRUE)
+        
+    }
+    
+    
+    # Populate life history columns in x
+    x$troph[x$species == worms$valid_name[i]] <- worms$troph[i]
+    x$habitat[x$species == worms$valid_name[i]] <- worms$habitat[i]
+    x$k[x$species == worms$valid_name[i]] <- worms$k[i]
+    
   }
-  
+    
   return(x)
   
 }
@@ -573,6 +627,9 @@ fish2trip <- function(x, dri){
   temp$LLmat <- NA
   temp$LLopt <- NA
   temp$length_cm <- NA
+  temp$k <- NA
+  temp$troph <- NA
+  temp$habitat <- NA
   temp$nutrients_pdv.pue <- NA
   
   # Populate additional columns
@@ -604,7 +661,7 @@ fish2trip <- function(x, dri){
     
   }
   
-  # Calculate species richness, LLopt, and LLmat
+  # Calculate species richness, LLopt, LLmat, and length
   for (i in 1:nrow(temp)){
     
     # Subset of x for this trip
@@ -634,6 +691,26 @@ fish2trip <- function(x, dri){
     
     # Save to temp
     temp$length_cm[i] <- z
+    
+    # Find mean k
+    z <- mean(y$k, na.rm = TRUE)
+    
+    # Save to temp
+    temp$k[i] <- z
+    
+    # Find mean troph
+    z <- mean(y$troph, na.rm = TRUE)
+    
+    # Save to temp
+    temp$troph[i] <- z
+    
+    # Most frequent habitat
+    z <- names(which.max(table(y$habitat)))
+    
+    # Save to temp if there is anything to save
+    if (length(z > 0)){
+      temp$habitat[i] <- z
+    }
     
   }
   
@@ -1091,7 +1168,8 @@ trip_dzoga <- fish2trip(catch_kenya_dzoga, dri = dri)
 # Select and reorder columns for master trip data
 trip <- trip_dzoga %>% select(trip, date, country, site, management, gear,
   landings_kg, cpue_kg.effort.day, LLmat, LLopt, length_cm,
-  species_richness, nutrients_pdv, nutrients_pdv.pue, nutrient_evenness,
+  k, troph, habitat, species_richness,
+  nutrients_pdv, nutrients_pdv.pue, nutrient_evenness,
   calcium_mg, calcium_mg.pue, calcium_mg.per.100g, calcium_pdv, calcium_pdv.pue,
   iron_mg, iron_mg.pue, iron_mg.per.100g, iron_pdv, iron_pdv.pue,
   omega.3_g, omega.3_g.pue, omega.3_g.per.100g, omega.3_pdv, omega.3_pdv.pue,
@@ -1106,7 +1184,7 @@ trip$date <- as.Date(trip$date, origin = "1970-01-01")
 
 ## Save to fish master
 fish <- catch_kenya_dzoga %>% select(trip, date, country, site, gear, management,
-  species, weight_kg, length_cm, LLopt, LLmat, source)
+  species, weight_kg, length_cm, LLopt, LLmat, k, troph, habitat, source)
 
 
 
@@ -1250,8 +1328,10 @@ trip_musembi <- fish2trip(catch_kenya_musembi, dri = dri)
 
 # Select and reorder columns
 trip_musembi <- trip_musembi %>% select(trip, date, country, site, management, gear,
-  landings_kg, cpue_kg.effort.day, LLmat, LLopt, length_cm,
-  species_richness, nutrients_pdv, nutrients_pdv.pue, nutrient_evenness,
+  landings_kg, cpue_kg.effort.day,
+  LLmat, LLopt, length_cm,
+  k, troph, habitat, species_richness,
+  nutrients_pdv, nutrients_pdv.pue, nutrient_evenness,
   calcium_mg, calcium_mg.pue, calcium_mg.per.100g, calcium_pdv, calcium_pdv.pue,
   iron_mg, iron_mg.pue, iron_mg.per.100g, iron_pdv, iron_pdv.pue,
   omega.3_g, omega.3_g.pue, omega.3_g.per.100g, omega.3_pdv, omega.3_pdv.pue,

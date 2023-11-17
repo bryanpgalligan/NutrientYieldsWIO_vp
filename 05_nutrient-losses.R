@@ -46,18 +46,18 @@ wio_nutrients$population <- c( #source is world bank
   65497750 #tanzania
   )
 wio_nutrients$children <- c( 
-  #estimated number of children under 5
+  #estimated number of children 1-3
   #source is United Nations, Department of Economic and Social Affairs, Population Division (2022). World Population Prospects: The 2022 Revision, custom data acquired via website.
-  114563, #comoros
-  7035351, #kenya
-  4274390, #madagascar
-  36264, #maldives
-  65784, #mauritius
-  53670, #mayotte
-  5468527, #mozambique
-  70263, #reunion
-  8203, #seychelles
-  10976141 #tanzania
+  68660, #comoros
+  4207317, #kenya
+  2562401, #madagascar
+  21821, #maldives
+  39560, #mauritius
+  32023, #mayotte
+  3274842, #mozambique
+  42090, #reunion
+  4915, #seychelles
+  5624229 #tanzania
 )
 
 # Nutrient density columns
@@ -394,11 +394,11 @@ ggplot(temp, aes(x = eez, y = value, fill = nutrients, label = (round(value * 10
   geom_bar(position = "stack", stat = "identity") +
   geom_text(size = 2, position = position_stack(vjust = 0.5), color = "white") +
   scale_y_continuous(labels = percent) +
-  ylab(expression("Nutrients in 100g Serving\n(% Recommended Intake)")) +
+  ylab(expression("Nutrients in 100g (% Recommended Intake)")) +
   xlab("") +
   coord_flip() +
   scale_fill_jco(
-    breaks = c("selenium_pdv.100g", "omega3_pdv.100g", "zinc_pdv.100g", "iron_pdv.100g",
+    breaks = c("selenium_pdv.100g", "zinc_pdv.100g", "omega3_pdv.100g", "iron_pdv.100g",
       "vitamina_pdv.100g", "calcium_pdv.100g"),
     labels = c("Selenium", "Omega-3", "Zinc", "Iron", "Vitamin A", "Calcium")) +
   guides(fill = guide_legend(title = "", nrow = 1, label.position = "bottom"
@@ -409,7 +409,7 @@ ggplot(temp, aes(x = eez, y = value, fill = nutrients, label = (round(value * 10
     text = element_text(size = 6.5),
     legend.text = element_text(size = 6.5),
     axis.title.x = element_text(vjust = -5),
-    #plot.margin = unit(c(6, 1, 0, 1), "mm"),
+    plot.margin = unit(c(1, 5, 1, 1), "mm"),
     legend.box.spacing = unit(3, "mm")
     )
 
@@ -1261,7 +1261,7 @@ fig4c <- ggplot(temp, aes(x = lost.zinc_dri.day, y = country)) +
   geom_violin(fill = "gray", alpha = 0.5, color = "#CD534CFF",
     draw_quantiles = 0.5, position = "identity") +
   labs(title = "Zinc", color = "", y = "",
-    x = expression(paste("Lost Yield at Overfished Sites ", bgroup("(", frac('servings', 'km'^2~day), ")"), sep = ""))) +
+    x = expression(paste("Lost Yield at Overfished Sites ", bgroup("(", frac('DRI', 'km'^2~day), ")"), sep = ""))) +
   coord_cartesian(xlim = c(0, 100)) +
   scale_x_continuous(expand = c(0, 0)) +
   theme_pubr() +

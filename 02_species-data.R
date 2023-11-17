@@ -2,11 +2,11 @@
 
 # Retrieve FishBase "estimates," "species," and "taxa" tables
 species_data <- left_join(estimate(), species(), by = "SpecCode")
-species_data<- left_join(species_data, load_taxa(), by = "SpecCode")
+species_data <- left_join(species_data, load_taxa(), by = "SpecCode")
 
 # Select only desired variables
-species_data <- select(species_data, Species, Class, Order, Family, Genus.y, MaxLengthTL, Troph, a, b, K, TempPrefMin, TempPrefMean,
-  TempPrefMax, FeedingPath, FeedingPathLevel, Calcium, Iron, Omega3, Selenium, VitaminA, Zinc)
+species_data <- select(species_data, Species, Class, Order, Family, Genus.y, MaxLengthTL, Troph, a, b, TempPrefMin, TempPrefMean,
+  TempPrefMax, FeedingPath, FeedingPathLevel, DemersPelag, Calcium, Iron, Omega3, Selenium, VitaminA, Zinc)
 
 # Rename variables
 species_data <- rename(species_data,
@@ -22,6 +22,7 @@ species_data <- rename(species_data,
     temp.pref.max = TempPrefMax,
     feeding.path = FeedingPath,
     feeding.path.level = FeedingPathLevel,
+    habitat = DemersPelag,
     calcium_mg.100g = Calcium,
     iron_mg.100g = Iron,
     omega3_g.100g = Omega3,
